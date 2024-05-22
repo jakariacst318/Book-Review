@@ -13,10 +13,9 @@ const Books = () => {
     return (
         <div>
             <div>
-                <h2 className="text-[#131313] font-bold text-4xl text-center">Book</h2>
-                <h2>this is books section : {books.length}</h2>
+                <h2 className="text-[#131313] font-bold text-4xl text-center py-10">Book</h2>
             </div>
-            <div>
+            <div className="grid md:grid-cols-2 gap-7 p-5">
                 {
                     books.map(book => <Book key={book.id} book={book}></Book>)
                 }
