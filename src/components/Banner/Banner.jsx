@@ -1,8 +1,17 @@
 
+import banner from './banner.png'
 const Banner = () => {
+
     return (
-        <div>
-            <h2> this is banner section  +  images section </h2>
+        <div className=' grid lg:grid-cols-2  lg:gap-x-20 lg:h-96 justify-center items-center mx-28 my-16'>
+            <div>
+                <h2 className='font-bold text-5xl '> Books to freshen up  your bookshelf </h2>
+                <button className='btn bg-[#23BE0A] text-white mt-12'>View The List</button>
+            </div>
+            <div>
+                <img className='lg:w-96 ' src={banner} alt="" />
+            </div>
+
         </div>
     );
 };
