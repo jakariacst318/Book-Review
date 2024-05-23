@@ -1,11 +1,21 @@
 import { useLoaderData, useParams } from "react-router-dom";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import { AiFillCheckCircle } from "react-icons/ai";
 
 const BookDetailes = () => {
     const books = useLoaderData();
     const { id } = useParams()
     const idInt = parseInt(id)
     const book = books.find(book => book.id === idInt)
-    const { image, review, bookName, author, category, tags, totalPages, publisher, yearOfPublishing, rating } = book
+    const { image, review, bookName, author, category, tags, totalPages, publisher, yearOfPublishing, rating } = book;
+
+    const handleReadBook =() =>{
+        toast(' Book Added to Read List')
+    }
+    const handleWishlist =() =>{
+        toast(' Book Added to Wishlist List')
+    }
     return (
         <div>
             <div className="hero min-h-screen bg-base-200">
@@ -31,11 +41,12 @@ const BookDetailes = () => {
 
                             <p className="text-[#131313B3] pb-8">Rating <span className="font-semibold text-[#131313] ms-[130px]">{rating}</span></p>
                         </div>
-                        <button className="btn btn-outline btn-accent">Read</button> 
-                        <button className="btn btn-accent ms-4">Wishlist</button>
+                        <button onClick={handleReadBook} className="btn btn-outline btn-accent">Read</button> 
+                        <button  onClick={handleWishlist} className="btn btn-accent ms-4">Wishlist</button>
                     </div>
                 </div>
             </div>
+            <ToastContainer />
         </div>
     );
 };
